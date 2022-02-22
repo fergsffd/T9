@@ -4,7 +4,7 @@ import helper
 import gold
 
 def parse_content(content):
-    print('Using my parse_content')
+    print('== My parse_content ==')
     items = content.split('\n')
     ans = dict()
     for item in items:
@@ -14,15 +14,24 @@ def parse_content(content):
     return ans
 
 def make_tree(words):
+    print('== My make_tree ==')
+    ans = dict()
+    for word, freq in words.items():
+        for letter in word:
+            if ans.has_key(letter):
+                
+
     return {}
 
 def predict(tree, numbers):
+    print('== My parse_content ==')
     return {}
 
 
 if __name__ == '__main__':
     content = helper.read_content(filename='ngrams-10k.txt')
-    if len(sys.argv) > 1:
+    my_run_level = len(sys.argv)
+    if my_run_level > 1:
         words = gold.parse_content(content)
     else:
         words = parse_content(content)
@@ -34,12 +43,18 @@ if __name__ == '__main__':
     #input('words: ' + str(words))
 
     # PART 2: Building a trie from a collection of words.
-    tree = gold.make_tree(words)
+    if my_run_level > 2:
+        tree = gold.make_tree(words)
+    else:
+        tree = make_tree(words)
 
     while True:
         # PART 3: Predict words that could follow
         numbers = helper.ask_for_numbers()
-        predictions = gold.predict(tree, numbers)
+        if my_run_level > 3:
+            predictions = gold.predict(tree, numbers)
+        else:
+            predictions = predict(tree, numbers)
 
         if not predictions:
             print('No words were found that match those numbers. :(')
