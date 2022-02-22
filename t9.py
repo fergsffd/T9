@@ -16,11 +16,9 @@ def parse_content(content):
 def make_tree(words):
     print('== My make_tree ==')
     ans = dict()
-    for word, freq in words.items():
+    for word, word_freq in words.items():
         for letter in word:
             if ans.has_key(letter):
-                
-
     return {}
 
 def predict(tree, numbers):
@@ -43,10 +41,7 @@ if __name__ == '__main__':
     #input('words: ' + str(words))
 
     # PART 2: Building a trie from a collection of words.
-    if my_run_level > 2:
-        tree = gold.make_tree(words)
-    else:
-        tree = make_tree(words)
+    tree = gold.make_tree(words)
 
     while True:
         # PART 3: Predict words that could follow
