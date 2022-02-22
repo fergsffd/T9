@@ -7,7 +7,6 @@ def parse_content(content):
     for item in items:
         key_val = item.split(' ')
         ans.update({key_val[0]:key_val[1]})
-
     return ans
 
 def make_tree(words):

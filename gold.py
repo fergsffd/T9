@@ -1,6 +1,7 @@
 """Reference solutions to each of the pieces of the T9 exercise.
 
-Sure, these are some solutions. They're right here, if you reall need to see them.
+Sure, these are some solutions. They're right here, if you really
+need to see them.
 """
 import collections
 import functools
