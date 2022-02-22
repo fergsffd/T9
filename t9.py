@@ -1,12 +1,16 @@
+
+import sys
 import helper
 import gold
 
 def parse_content(content):
+    print('Using my parse_content')
     items = content.split('\n')
     ans = dict()
     for item in items:
-        key_val = item.split(' ')
-        ans.update({key_val[0]:key_val[1]})
+        key_idx = item.find(' ')
+        value = item[key_idx:].strip()
+        ans.update({item[:key_idx]:value})
     return ans
 
 def make_tree(words):
@@ -18,12 +22,16 @@ def predict(tree, numbers):
 
 if __name__ == '__main__':
     content = helper.read_content(filename='ngrams-10k.txt')
+    if len(sys.argv) > 1:
+        words = gold.parse_content(content)
+    else:
+        words = parse_content(content)
 
     # When you've finished implementing a part, remove the `gold.` prefix to check your own code.
 
     # PART 1: Parsing a string into a dictionary.
-    words = gold.parse_content(content)
-    input('words: ' + str(words))
+    #words = parse_content(content)
+    #input('words: ' + str(words))
 
     # PART 2: Building a trie from a collection of words.
     tree = gold.make_tree(words)
