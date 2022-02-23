@@ -22,7 +22,14 @@ def make_tree(words):
     return {}
 
 def predict(tree, numbers):
-    print('== My parse_content ==')
+    print('== My prediction ==')
+    answer = []
+    for num in numbers:
+        tgt_letters = keymap[num]
+        for character in tgt_letters:
+            for branch, next_branch in tree:
+                node = answer
+
     return {}
 
 
